@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: airflow-prefix-headers
+  namespace: hse-coursework-health
+data:
+  X-Forwarded-Prefix: "/airflow"

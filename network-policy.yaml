@@ -1,0 +1,60 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: app-ingress
+  namespace: hse-coursework-health
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: hse-coursework-health.ru
+    http:
+      paths:
+        - path: /results-provider
+          pathType: Prefix
+          backend:
+            service:
+              name: results-provider
+              port:
+                number: 8080
+        - path: /auth-api
+          pathType: Prefix
+          backend:
+            service:
+              name: auth-api
+              port:
+                number: 8080
+        - path: /data-collection-api
+          pathType: Prefix
+          backend:
+            service:
+              name: data-collection-api
+              port:
+                number: 8080
+        - path: /airflow
+          pathType: Prefix
+          backend:
+            service:
+              name: airflow-webserver
+              port:
+                number: 8080
+        - path: /kafka-ui
+          pathType: Prefix
+          backend:
+            service:
+              name: kafka-ui
+              port:
+                number: 80
+        - path: /grafana
+          pathType: Prefix
+          backend:
+            service:
+              name: grafana
+              port:
+                number: 80
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: frontend
+              port:
+                number: 3000
