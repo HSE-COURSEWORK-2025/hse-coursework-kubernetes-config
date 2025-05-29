@@ -30,11 +30,11 @@ spec:
               name: data-collection-api
               port:
                 number: 8080
-        - path: /ml-api
+        - path: /notifications-api
           pathType: Prefix
           backend:
             service:
-              name: ml-api
+              name: notifications-api
               port:
                 number: 8080
         - path: /airflow
