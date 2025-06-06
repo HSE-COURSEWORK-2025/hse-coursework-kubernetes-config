@@ -37,6 +37,13 @@ spec:
               name: notifications-api
               port:
                 number: 8080
+        - path: /ratings-api
+          pathType: Prefix
+          backend:
+            service:
+              name: ratings-api
+              port:
+                number: 8080
         - path: /airflow
           pathType: Prefix
           backend:
